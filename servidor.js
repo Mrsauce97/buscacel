@@ -2,14 +2,16 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const Celular = require('./mongoosePhone')
+const cors = require('cors');
 const PORT = process.env.PORT || 3000
 
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res)=> {
-  res.send('Server on')
+  res.send('Server on con cors')
 })
 
 // crear celulares
