@@ -16,7 +16,7 @@ app.get('/', (req, res)=> {
 
 // crear celulares
 app.post('/api/create',(req,res)=>{
-  const {marca,modelo,sistemaOperativo} = req.body
+  const {marca,modelo,sistemaOperativo,imagen} = req.body
   let nuevoCelular = Celular({
     marca,
     modelo,
