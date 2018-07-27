@@ -5,7 +5,7 @@ const Celular = require('./mongoosePhone')
 const PORT = process.env.PORT || 3000
 
 
-app.use(bodyParser.urlencoded({extends:true}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 app.get('/', (req, res)=> {
@@ -18,7 +18,8 @@ app.post('/api/create',(req,res)=>{
   let nuevoCelular = Celular({
     marca,
     modelo,
-    sistemaOperativo
+    sistemaOperativo,
+    imagen
   })
 
   nuevoCelular.save((error,celular)=>{
@@ -32,7 +33,7 @@ app.get('/api/celulares', (req,res)=>{
        Celular.find().exec()
            .then(celular=> res.send(celular))
            .catch(err => res.send(err))
-           
+
    });
 
 app.get('/api/celulares/:uid', (req,res)=>{

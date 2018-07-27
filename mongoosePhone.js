@@ -9,6 +9,7 @@ const celularSchema = new Schema({
   marca:String,
   modelo:String,
   sistemaOperativo:String,
+  imagen:String
 })
 
 var Celular = mongoose.model('Celular', celularSchema)
