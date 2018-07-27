@@ -32,11 +32,37 @@ app.post('/api/create',(req,res)=>{
 
 //Read
 app.get('/api/celulares', (req,res)=>{
-       Celular.find().exec()
-           .then(celular=> res.send(celular))
-           .catch(err => res.send(err))
-
-   });
+    let query = req.query.q
+      if(query== 'android'){
+      Celular.find({'sistemaOperativo':'Android'}).exec()
+      .then(celular=> res.send(celular))
+      .catch(err => res.send(err))
+     } else if(query== 'ios'){
+      Celular.find({'sistemaOperativo':['iOS','iOS 6','iOS 10']}).exec()
+      .then(celular=> res.send(celular))
+      .catch(err => res.send(err))
+     } else if(query== 'samsung'){
+      Celular.find({'marca':'SAMSUNG'}).exec()
+      .then(celular=> res.send(celular))
+      .catch(err => res.send(err))
+     } else if(query== 'apple'){
+      Celular.find({'marca':'Apple'}).exec()
+      .then(celular=> res.send(celular))
+      .catch(err => res.send(err))
+     } else if(query== 'lg'){
+      Celular.find({'marca':'LG'}).exec()
+      .then(celular=> res.send(celular))
+      .catch(err => res.send(err))
+     } else if(query== 'huawei'){
+      Celular.find({'marca':'HUAWEI'}).exec()
+      .then(celular=> res.send(celular))
+      .catch(err => res.send(err))
+     } else {
+      Celular.find().exec()
+      .then(celular=> res.send(celular))
+      .catch(err => res.send(err))
+     }
+});
 
 app.get('/api/celulares/:uid', (req,res)=>{
    let {uid} = req.params;
