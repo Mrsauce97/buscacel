@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 let url = 'mongodb://saul:saul0989@ds245971.mlab.com:45971/buscacel';
-mongoose.connect(url);
+mongoose.connect(url, { useNewUrlParser: true});
 
 const Schema = mongoose.Schema,
                 ObjectId = Schema.ObjectId
